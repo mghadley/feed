@@ -5,9 +5,9 @@ class IngredientsController < ApplicationController
   def create
     @recipe = current_user.recipes.find(params[:recipe_id])
     20.times do |i|
-      @ingredient = Ingredient.find_or_initialize_by( params["name#{i}"])
+      @ingredient = Ingredient.find_or_initialize_by(name: params["name#{i}"])
       if @ingredient.save
-        unless @measurement.create(recipe_id: @recipe.id, ingredient_id: @ingredient.id, amount: params["amount#{i}"], unit: params["unit#{i}"])
+        unless Measurement.create(recipe_id: @recipe.id, ingredient_id: @ingredient.id, amount: params["amount#{i}"], unit: params["unit#{i}"])
           flash[:danger] = "Something went wrong"
           render :new and return
         end

@@ -3,10 +3,10 @@ Rails.application.routes.draw do
 
   resources :recipes
 
-  get 'ingredients/new'
+  get 'new_ingredients', to: 'ingredients#new'
   get 'static_pages/splash'
 
-  post 'ingredients/create'
+  post 'ingredients', to: 'ingredients#create'
 
   devise_for :users, controllers: {
         sessions: 'users/sessions'

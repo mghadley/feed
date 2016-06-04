@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :recipe, only: [:edit, :update, :destroy, :create]
+  before_action :recipe, only: [:edit, :update, :destroy]
 
 
   def index
@@ -11,7 +11,7 @@ class RecipesController < ApplicationController
   end
 
   def new
-  	@recipe = current_user.recipes.new
+  	@recipe = Recipe.new
   end
 
   def edit
@@ -24,10 +24,10 @@ class RecipesController < ApplicationController
   end
 
   def create
-  	@recipe = Recipe.new(recipe_params)
+  	@recipe = current_user.recipes.new(recipe_params)
   	if @recipe.save
   		flash[:success] = "Recipe created successfully"
-	  	redirect_to ingredeints_new_path(id: @recipe_id)
+	  	redirect_to new_ingredients_path(id: @recipe.id)
 	  else
 	  	flash[:danger] = @recipe.errors.full_messages.join('<br>').html_safe
 	  	render :new
@@ -49,7 +49,7 @@ class RecipesController < ApplicationController
   end
 
   def recipe
-  	@recipe = current_user.lists.find(params[:id])
+  	@recipe = current_user.recipes.find(params[:id])
   end
 
 end
