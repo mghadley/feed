@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'static_pages#splash'
 
-  mount Commontator::Engine => '/commontator' #the mount path may not work here
+  mount Commontator::Engine => '/commontator'
 
   resources :recipes
 

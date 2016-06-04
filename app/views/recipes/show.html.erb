@@ -22,7 +22,7 @@
 	<span> <%= @recipe.instructions %> </span>
 	<br />
 
-	<hr />
+	<br />
 
 	<% if @recipe.image_file_name %>
 		<div><%= image_tag @recipe.image.url, class: 'image' %></div>
@@ -39,11 +39,11 @@
 		  <% end %>
 		<% end %>
 	<% end %>
-	<%= commontator_thread(@recipe) %>
 	<% if @recipe.user_id == current_user.id %>
 		<%= link_to "Edit Recipe", edit_recipe_path(@recipe), class:'btn btn-primary' %> |
 		<%= link_to "Delete", recipe_path(@recipe) ,method: :delete, data: {confirm: 'Really delete?'}, class:'btn btn-default' %> |
 	<% end %> 
-
+	<hr/>
+	<%= commontator_thread(@recipe) %>
 </div> 
 
