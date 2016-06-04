@@ -2,6 +2,25 @@ class Recipe < ActiveRecord::Base
 	has_many :measurements
 	has_many :ingredients, through: :measurements
 	belongs_to :user
+	validate :duration_greater_than_zero
+
+	def duration_greater_than_zero
+		if (self.hours + self.minutes) <= 0
+			errors.add(:recipe, 'Duration must be greater than 0')
+		end
+	end
+
+	def duration
+		duration = ""
+		if self.hours > 0 && self.minutes > 0
+			duration += "#{self.hours} hours and #{self.minutes} minutes"
+		elsif self.hours > 0
+			duration += "#{self.hours}.hours"
+		else self.minutes > 0
+			duration += "#{self.minutes} minutes"
+		end
+		return duration
+	end
 
 	def self.difficulty_options
 		['Easy', 'Medium', 'Hard', 'Top Chef']
