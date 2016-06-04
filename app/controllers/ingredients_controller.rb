@@ -35,6 +35,10 @@ class IngredientsController < ApplicationController
   #     redirect_to @
   # end
 
-  # def destroy
-  # end
+  def destroy
+    @measurement = Measurement.find(params[:id])
+    @recipe = Recipe.find(params[:recipe_id])
+    @measurement.destroy
+    redirect_to edit_recipe_path(@recipe)
+  end
 end
