@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   post 'ingredients', to: 'ingredients#create'
 
+  delete 'ingredients', to: 'ingredients#destroy'
+
   devise_for :users, controllers: {
         sessions: 'users/sessions'
       }
