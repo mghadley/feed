@@ -8,7 +8,7 @@ class CreateRecipes < ActiveRecord::Migration
       t.string :category
       t.string :food_type
       t.text :instructions
-      t.integer :likes
+      t.integer :likes, default: 0
       t.belongs_to :user
 
       t.timestamps null: false

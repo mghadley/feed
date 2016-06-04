@@ -1,6 +1,5 @@
-@import "materialize"
+@import "materialize";
 @import "recipes";
 @import "static_pages";
 @import "ingredients";
 @import "app"; 
-
