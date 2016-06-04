@@ -7,15 +7,15 @@
   <%= f.time_select :duration %>
 
   <%= f.label :difficulty %>
-  <%= f.select :difficulty %>
+  <%= f.select :difficulty, Recipe.difficulty_options %>
 
   <%= f.label :category %>
-  <%= f.select :category %>
+  <%= f.select :category, Recipe.category_options %>
 
   <%= f.label :food_type %>
-  <%= f.select :food_type %>
+  <%= f.select :food_type, Recipe.food_type_options %>
 
-  <%= f.text :instructions %>
+  <%= f.label :instructions %>
   <%= f.text_area :instructions %>
 
 <%= f.submit %>

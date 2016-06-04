@@ -5,18 +5,22 @@ class IngredientsController < ApplicationController
   def create
     @recipe = current_user.recipes.find(params[:recipe_id])
     20.times do |i|
-      @ingredient = Ingredient.find_or_initialize_by( params["name#{i}"])
-      if @ingredient.save
-        unless @measurement.create(recipe_id: @recipe.id, ingredient_id: @ingredient.id, amount: params["amount#{i}"], unit: params["unit#{i}"])
+      unless params["name#{i}"].empty?
+        @ingredient = Ingredient.find_or_initialize_by(name: params["name#{i}"])
+        if @ingredient.save
+          if Measurement.create(recipe_id: @recipe.id, ingredient_id: @ingredient.id, amount: params["amount#{i}"], unit: params["unit#{i}"]) 
+            flash[:success] = "Ingredients Added Succssfully"
+          else
+            flash[:danger] = "Something went wrong"
+            binding.pry
+            redirect_to(root_path) and return @recipe
+          end
+        else
           flash[:danger] = "Something went wrong"
-          render :new and return
+          redirect_to(root_path) and return @recipe
         end
-      else
-        flash[:danger] = "Something went wrong"
-        render :new and return
       end
     end
-    flash[:success] = "Ingredients added successfully"
     redirect_to recipe_path(@recipe)
   end
 
