@@ -1,2 +1,9 @@
-<h1>Ingredients#new</h1>
-<p>Find me in app/views/ingredients/new.html.erb</p>
+<%= form_tag('/ingredients') do %>
+	<% 20.times do |i| %>
+		<%= label_tag "Name" %>
+		<%= text_field_tag "name#{i}" %>
+
+		<%= label_tag "Amount" %>
+		<%= number_field_tag "amount#{i}" %>
+	<% end %>
+<% end %>
