@@ -1,4 +1,23 @@
 <h1>Feed</h1>
+<% @recipes.each do |recipe| %>
+	<div>
+		<h2><%= link_to recipe.name, recipe_path(recipe) %></h2>
+		<div>Time needed: <%= recipe.duration %></div>
+		<div>Difficulty: <%= recipe.difficulty %></div>
+		<div>Category: <%= recipe.category %></div>
+		<div>Type: <%= recipe.food_type %></div>
+		<div>Instructions: </div>
+		<%= recipe.instructions %>
+	</div>
+	<div>
+		<% recipe.ingredients.each do |i| %>
+			<%= i.measurements.find_by(recipe_id: recipe.id).amount %>
+			<%= i.measurements.find_by(recipe_id: recipe.id).unit %>
+			<%= i.name %>
+		<% end %>
+	</div>
+
+<% end %>
 <hr/>
 
 <h1>Trending</h1>
@@ -10,6 +29,6 @@
 <h1>Suggested</h1>
 
 
-<%= render(partial: 'form') %>
+
 
 
