@@ -6,14 +6,16 @@
 		<div>Difficulty: <%= recipe.difficulty %></div>
 		<div>Category: <%= recipe.category %></div>
 		<div>Type: <%= recipe.food_type %></div>
-		<div>Instructions: </div>
+		<h3>Instructions: </h3>
 		<%= recipe.instructions %>
 	</div>
 	<div>
+		<h3>Ingredients</h3>
 		<% recipe.ingredients.each do |i| %>
 			<%= i.measurements.find_by(recipe_id: recipe.id).amount %>
 			<%= i.measurements.find_by(recipe_id: recipe.id).unit %>
 			<%= i.name %>
+			<br>
 		<% end %>
 	</div>
 
