@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   before_action :user
-  before_Action :recipe, only: [:edit, :update, :destroy, :create]
+  before_action :recipe, only: [:edit, :update, :destroy, :create]
 
 
   def index
