@@ -2,7 +2,7 @@
 	<h1><%= @recipe.name %></h1>
 	<hr />
 
-<!-- 	<span>Duration:</span>
+	<span>Duration:</span>
 	<span> <%= @recipe.duration %> </span>
 	<br />
 
@@ -15,7 +15,7 @@
 	<br />
 
 	<span>Food Type:</span>
-	<span> <%= @recipe.food_type %> </span> -->
+	<span> <%= @recipe.food_type %> </span>
 	<br />
 
 	<span>Instructions:</span>
@@ -23,6 +23,16 @@
 	<br />
 
 	<br />
+
+	<div>
+		<h3>Ingredients</h3>
+		<% recipe.ingredients.each do |i| %>
+			<%= i.measurements.find_by(recipe_id: recipe.id).amount %>
+			<%= i.measurements.find_by(recipe_id: recipe.id).unit %>
+			<%= i.name %>
+			<br>
+		<% end %>
+	</div>
 
 	<% if @recipe.image_file_name %>
 		<div><%= image_tag @recipe.image.url, class: 'image' %></div>
