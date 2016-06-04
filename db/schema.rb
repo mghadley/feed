@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160604163150) do
+ActiveRecord::Schema.define(version: 20160604210015) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,16 +45,20 @@ ActiveRecord::Schema.define(version: 20160604163150) do
 
   create_table "recipes", force: :cascade do |t|
     t.string   "name"
-    t.integer  "hours",        default: 0
-    t.integer  "minutes",      default: 0
+    t.integer  "hours",              default: 0
+    t.integer  "minutes",            default: 0
     t.string   "difficulty"
     t.string   "category"
     t.string   "food_type"
     t.text     "instructions"
     t.integer  "likes",        default: 0
     t.integer  "user_id"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "users", force: :cascade do |t|
