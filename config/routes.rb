@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'static_pages/splash'
 
   post 'ingredients', to: 'ingredients#create'
+  post 'likes', to: 'likes#create'
+
 
   delete 'ingredients', to: 'ingredients#destroy'
 
