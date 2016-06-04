@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   get 'ingredients/new'
   get 'static_pages/splash'
 
-  post 'ingredients/create'
+
+  post 'ingredients', to: 'ingredients#create'
+  post 'likes', to: 'likes#create'
 
   devise_for :users, controllers: {
         sessions: 'users/sessions'
