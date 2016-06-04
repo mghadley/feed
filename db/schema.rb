@@ -45,7 +45,8 @@ ActiveRecord::Schema.define(version: 20160604163150) do
 
   create_table "recipes", force: :cascade do |t|
     t.string   "name"
-    t.time     "duration"
+    t.integer  "hours",        default: 0
+    t.integer  "minutes",      default: 0
     t.string   "difficulty"
     t.string   "category"
     t.string   "food_type"

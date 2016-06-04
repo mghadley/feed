@@ -2,9 +2,13 @@
 <%= form_for @recipe do |f| %>
 	<%= f.label :name %>
 	<%= f.text_field :name %>
+  
+  Duration
+	<%= f.label :hours %>
+  <%= f.number_field :hours %>
 
-	<%= f.label :duration %>
-  <%= f.time_select :duration %>
+  <%= f.label :minutes %>
+  <%= f.number_field :minutes %>
 
   <%= f.label :difficulty %>
   <%= f.select :difficulty, Recipe.difficulty_options %>
