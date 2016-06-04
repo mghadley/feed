@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   post 'ingredients', to: 'ingredients#create'
   post 'likes', to: 'likes#create'
-
+  post 'remove_image', to: 'recipes#remove_image'
 
   delete 'ingredients', to: 'ingredients#destroy'
 

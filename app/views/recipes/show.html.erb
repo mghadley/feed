@@ -24,9 +24,13 @@
 
 	<hr />
 
+	<% if @recipe.image_file_name %>
+		<div><%= image_tag @recipe.image.url, class: 'image' %></div>
+	<% end %>
+
 	<% if @recipe.id == current_user.id %>
 		<% if @recipe.image_file_name %>
-			<div><%= image_tag @recipe.image.url, class: 'image' %></div>
+			<p><%= button_to 'Remove Image', remove_image_path(id: @recipe.id) %></p>
 		<% else %>
 			<%= form_for @recipe, html: { multipart: true } do |f| %>
 			  <%= f.file_field :image %>
