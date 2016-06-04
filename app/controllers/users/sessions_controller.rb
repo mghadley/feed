@@ -1,5 +1,5 @@
 class Users::SessionsController < Devise::SessionsController
-before_action :configure_sign_in_params, only: [:create]
+# before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
   def new
@@ -16,14 +16,5 @@ before_action :configure_sign_in_params, only: [:create]
     super
   end
 
-  private
-   def sign_up_params
-     params.require(:user).permit(:name, :email, :password, 
-     :password_confirmation)
-   end
-   
-   def account_update_params
-     params.require(:user).permit(:name, :email, :password, 
-     :password_confirmation, :current_password)
-   end
+
 end
