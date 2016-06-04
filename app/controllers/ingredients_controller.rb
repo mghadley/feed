@@ -20,12 +20,17 @@ class IngredientsController < ApplicationController
     redirect_to recipe_path(@recipe)
   end
 
-  def edit
-  end
+  # def edit
+  #   @ingredient = Ingredient.find(params[:id])
+  # end
 
-  def update
-  end
+  # def update
+  #   @ingredient = Ingredient.find(params[:id])
+  #   if @ingredient.update(ingredient_params)
+  #     flash[:success] = "Ingredient updated"
+  #     redirect_to @
+  # end
 
-  def destroy
-  end
+  # def destroy
+  # end
 end
