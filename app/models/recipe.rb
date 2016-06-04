@@ -8,7 +8,6 @@ class Recipe < ActiveRecord::Base
 	belongs_to :user
 	validate :duration_greater_than_zero
 
-	acts_as_commontator
 	acts_as_commontable
 
 	def duration_greater_than_zero
