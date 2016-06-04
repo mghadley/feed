@@ -1,0 +1,26 @@
+
+<%= form_for @recipe do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+
+	<%= f.label :duration %>
+  <%= f.select :duration, [1,2,3,4,5] %>
+
+  <%= f.label :difficulty %>
+  <%= f.select :difficulty %>
+
+  <%= f.label :category %>
+  <%= f.select :category %>
+
+  <%= f.label :food_type %>
+  <%= f.select :food_type %>
+
+  <%= f.text :instructions %>
+  <%= f.text_area :instructions %>
+
+<%= f.label :likes %>
+<%= f.select :likes %>
+
+<%= f.submit %>
+
+<% end %>
