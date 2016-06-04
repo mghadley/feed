@@ -43,6 +43,18 @@ class RecipesController < ApplicationController
   	end
   end
 
+  def remove_image
+    @recipe = current_user.recipes.find(params[:id])
+    @recipe.image = nil
+    if @recipe.save
+      flash[:success] = 'Image removed'
+      redirect_to recipe_path(@recipe)
+    else
+     flash[:danger] = @recipe.errors.full_messages.join('<br>').html_safe
+     redirect_to recipe_path(@recipe)
+   end
+  end
+
   private
 
   def recipe_params
