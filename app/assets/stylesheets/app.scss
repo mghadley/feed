@@ -1,0 +1,23 @@
+.flash {
+	text-align: center;
+	width: 50%;
+	font-size: 20px;
+	font-style: italic;
+	border-radius: 10px;
+	margin: 0 auto;
+	margin-top: 25px;
+}
+
+.flash.success {
+	background-color: #4080bf;
+	color: white;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+.flash.notice {
+	background-color: red;
+	color: white;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
