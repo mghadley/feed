@@ -50,10 +50,10 @@ ActiveRecord::Schema.define(version: 20160604163150) do
     t.string   "category"
     t.string   "food_type"
     t.text     "instructions"
-    t.integer  "likes"
+    t.integer  "likes",        default: 0
     t.integer  "user_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "users", force: :cascade do |t|
