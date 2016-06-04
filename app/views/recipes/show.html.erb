@@ -26,9 +26,9 @@
 
 	<div>
 		<h3>Ingredients</h3>
-		<% recipe.ingredients.each do |i| %>
-			<%= i.measurements.find_by(recipe_id: recipe.id).amount %>
-			<%= i.measurements.find_by(recipe_id: recipe.id).unit %>
+		<% @recipe.ingredients.each do |i| %>
+			<%= i.measurements.find_by(recipe_id: @recipe.id).amount %>
+			<%= i.measurements.find_by(recipe_id: @recipe.id).unit %>
 			<%= i.name %>
 			<br>
 		<% end %>
