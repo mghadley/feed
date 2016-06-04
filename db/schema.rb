@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(version: 20160604163150) do
   add_index "likes", ["user_id"], name: "index_likes_on_user_id", using: :btree
 
   create_table "measurements", force: :cascade do |t|
-    t.string   "amount"
-    t.float    "unit"
+    t.float    "amount"
+    t.string   "unit"
     t.integer  "recipe_id"
     t.integer  "ingredient_id"
     t.datetime "created_at",    null: false
