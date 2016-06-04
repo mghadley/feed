@@ -1,6 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :user
-  before_Action :recipe, only: [:edit, :update, :destroy, :create]
+  before_action :recipe, only: [:edit, :update, :destroy, :create]
 
 
   def index
@@ -20,7 +19,7 @@ class RecipesController < ApplicationController
 
   def destroy
   	@recipe.destroy
-  	redirect_to recipe_path #If errors, this might need to redirect to the root path
+  	redirect_to root_path
   end
 
   def create
@@ -51,4 +50,5 @@ class RecipesController < ApplicationController
   def recipe
   	@recipe = current_user.lists.find(params[:id])
   end
+
 end
