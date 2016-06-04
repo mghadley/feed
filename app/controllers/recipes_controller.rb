@@ -8,7 +8,6 @@ class RecipesController < ApplicationController
 
   def show
   	@recipe = Recipe.find(params[:id])
-    commontator_thread_show(@commontable)
   end
 
   def new
@@ -53,6 +52,10 @@ class RecipesController < ApplicationController
      flash[:danger] = @recipe.errors.full_messages.join('<br>').html_safe
      redirect_to recipe_path(@recipe)
    end
+  end
+
+  def search
+    @results = Recipe.search(params[:search_params])
   end
 
   private

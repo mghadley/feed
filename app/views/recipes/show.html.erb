@@ -43,7 +43,8 @@
 	<% if @recipe.user_id == current_user.id %>
 		<%= link_to "Edit Recipe", edit_recipe_path(@recipe), class:'btn btn-primary' %> |
 		<%= link_to "Delete", recipe_path(@recipe) ,method: :delete, data: {confirm: 'Really delete?'}, class:'btn btn-default' %> |
-	<% end %> 
+	<% end %>
 
-</div> 
-<%= commontator_thread(@commontable) %>
+	<div>
+		<%= render 'like' %>
+	</div> 

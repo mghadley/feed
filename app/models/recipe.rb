@@ -46,4 +46,8 @@ class Recipe < ActiveRecord::Base
 		return arr.map {|id| Recipe.find(id)}
 	end
 
+	def self.search(search_params)
+		where('name ilike ?', "%#{search_params}%")
+	end
+
 end
