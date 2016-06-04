@@ -1,6 +1,10 @@
 class Recipe < ActiveRecord::Base
 	has_many :measurements
 	has_many :ingredients, through: :measurements
+	
+	has_attached_file :image
+	validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+
 	belongs_to :user
 	validate :duration_greater_than_zero
 

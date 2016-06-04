@@ -74,8 +74,8 @@ ActiveRecord::Schema.define(version: 20160604211315) do
   add_index "likes", ["user_id"], name: "index_likes_on_user_id", using: :btree
 
   create_table "measurements", force: :cascade do |t|
-    t.string   "amount"
-    t.float    "unit"
+    t.float    "amount"
+    t.string   "unit"
     t.integer  "recipe_id"
     t.integer  "ingredient_id"
     t.datetime "created_at",    null: false
@@ -87,15 +87,20 @@ ActiveRecord::Schema.define(version: 20160604211315) do
 
   create_table "recipes", force: :cascade do |t|
     t.string   "name"
-    t.time     "duration"
+    t.integer  "hours",              default: 0
+    t.integer  "minutes",            default: 0
     t.string   "difficulty"
     t.string   "category"
     t.string   "food_type"
     t.text     "instructions"
-    t.integer  "likes"
+    t.integer  "likes",              default: 0
     t.integer  "user_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "users", force: :cascade do |t|
