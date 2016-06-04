@@ -1,15 +1,11 @@
 Rails.application.routes.draw do
+  root 'static_pages#splash'
+
+  resources :recipes
+
   get 'ingredients/new'
 
   get 'ingredients/edit'
-
-  get 'recipes/index'
-
-  get 'recipes/show'
-
-  get 'recipes/new'
-
-  get 'recipes/edit'
 
   get 'static_pages/splash'
 
