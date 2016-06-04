@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'new_ingredients', to: 'ingredients#new'
   get 'static_pages/splash'
 
+  post 'add_one', to: 'ingredients#add_one'
   post 'search', to: 'recipes#search'
   post 'ingredients', to: 'ingredients#create'
   post 'likes', to: 'likes#create'

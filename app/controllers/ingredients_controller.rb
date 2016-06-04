@@ -24,21 +24,28 @@ class IngredientsController < ApplicationController
     redirect_to recipe_path(@recipe)
   end
 
-  # def edit
-  #   @ingredient = Ingredient.find(params[:id])
-  # end
-
-  # def update
-  #   @ingredient = Ingredient.find(params[:id])
-  #   if @ingredient.update(ingredient_params)
-  #     flash[:success] = "Ingredient updated"
-  #     redirect_to @
-  # end
+  def add_one
+    @recipe = Recipe.find(params[:ingredient][:recipe_id])
+    @ingredient = @recipe.ingredients.find_or_initialize_by(recipe_params)
+    if @ingredient.save
+      flash[:succes] = "Ingredient added successfully"
+      redirect_to edit_recipe_path(@recipe)
+    else
+      flash[:danger] = @ingredient.errors.full_messages.join('<br>').html_safe
+      redirect_to edit_recipe_path(@recipe)
+    end
+  end
 
   def destroy
     @measurement = Measurement.find(params[:id])
     @recipe = Recipe.find(params[:recipe_id])
     @measurement.destroy
     redirect_to edit_recipe_path(@recipe)
+  end
+
+  private
+
+  def recipe_params
+    params.require(:ingredient).permit(:name, measurements_attributes: [:unit, :amount])
   end
 end
