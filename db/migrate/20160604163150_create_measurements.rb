@@ -1,8 +1,8 @@
 class CreateMeasurements < ActiveRecord::Migration
   def change
     create_table :measurements do |t|
-      t.float :amount
-      t.string :unit
+      t.string :amount
+      t.float :unit
       t.belongs_to :recipe, index: true, foreign_key: true
       t.belongs_to :ingredient, index: true, foreign_key: true
 
