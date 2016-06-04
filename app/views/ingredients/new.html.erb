@@ -5,5 +5,11 @@
 
 		<%= label_tag "Amount" %>
 		<%= number_field_tag "amount#{i}" %>
+
+		<%= label_tag "Unit" %>
+		<%= text_field_tag "unit#{i}" %>
+		<br>
 	<% end %>
+
+	<%= hidden_field_tag :recipe_id, params[:id] %>
 <% end %>
