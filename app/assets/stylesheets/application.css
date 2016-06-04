@@ -1,3 +1,5 @@
+*= require commontator/application
+
 @import "materialize";
 @import "recipes";
 @import "static_pages";

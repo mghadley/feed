@@ -12,11 +12,13 @@ gem 'will_paginate'
 
 gem 'paperclip'
 
-gem 'mailboxer'
+gem 'commontator'
 
 gem 'social-share-button'
 
 gem 'devise', '~> 4.1.1'
+
+
 
 
 # Use SCSS for stylesheets

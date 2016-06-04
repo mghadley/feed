@@ -8,6 +8,7 @@ class RecipesController < ApplicationController
 
   def show
   	@recipe = Recipe.find(params[:id])
+    commontator_thread_show(@commontable)
   end
 
   def new

@@ -4,6 +4,9 @@ class Recipe < ActiveRecord::Base
 	belongs_to :user
 	validate :duration_greater_than_zero
 
+	acts_as_commontator
+	acts_as_commontable
+
 	def duration_greater_than_zero
 		if (self.hours + self.minutes) <= 0
 			errors.add(:recipe, 'Duration must be greater than 0')
