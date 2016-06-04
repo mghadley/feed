@@ -1,2 +1,35 @@
-<h1>Recipes#show</h1>
-<p>Find me in app/views/recipes/show.html.erb</p>
+<h1><%= @recipe.name %></h1>
+<hr />
+
+<span>Name:</span>
+<span> <%= @recipe.name %> </span>
+<br />
+
+<span>Duration:</span>
+<span> <%= @recipe.duration %> </span>
+<br />
+
+<span>Difficulty:</span>
+<span> <%= @recipe.difficulty %> </span>
+<br />
+
+<span>Category:</span>
+<span> <%= @recipe.category %> </span>
+<br />
+
+<span>Food Type:</span>
+<span> <%= @recipe.food_type %> </span>
+<br />
+
+<span>Instructions:</span>
+<span> <%= @recipe.instructions %> </span>
+<br />
+
+<hr />
+
+
+<% if @recipe.user_id == current_user.id %>
+		<%= link_to "Edit Recipe", edit_recipe_path(@recipe) %> |
+		<%= link_to "Delete", recipe_path(@recipe) ,method: :delete, data: {confirm: 'Really delete?'} %> |
+	<% end %> 
+	 
