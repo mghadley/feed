@@ -1,7 +1,9 @@
-<div>
-	<h2>Trending Recipes</h2>
-	<% @trending.each do |recipe| %>
+<h1>Search Results</h1>
+
+<% if @results.any? %>
+	<% @results.each do |recipe| %>
 		<h1><%= link_to recipe.name, recipe_path(recipe) %></h1>
+		<hr />
 
 		<span>Duration:</span>
 		<span> <%= recipe.duration %> </span>
@@ -18,8 +20,7 @@
 		<span>Food Type:</span>
 		<span> <%= recipe.food_type %> </span>
 		<br />
-		
 	<% end %>
-</div>
-
-<%=link_to "Sign In", new_user_session_path%>
+<% else %>
+	<h2>No results found :/</h2>
+<% end %>

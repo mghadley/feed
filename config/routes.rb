@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'static_pages#splash'
 
-  mount Commontator::Engine => '/commontator' #the mount path may not work here
+  mount Commontator::Engine => '/commontator'
 
   resources :recipes
 
@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'new_ingredients', to: 'ingredients#new'
   get 'static_pages/splash'
 
+  post 'search', to: 'recipes#search'
   post 'ingredients', to: 'ingredients#create'
   post 'likes', to: 'likes#create'
   post 'remove_image', to: 'recipes#remove_image'
