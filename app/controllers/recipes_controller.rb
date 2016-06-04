@@ -24,7 +24,14 @@ class RecipesController < ApplicationController
   end
 
   def create
-  	redirect_to recipes_new_path(id: @recipe_id) #there doesnt need to be a path to ingredients here
+  	@recipe = Recipe.new(recipe_params)
+  	if @recipe.save
+  		flash[:success] = "Recipe created successfully"
+	  	redirect_to ingredeints_new_path(id: @recipe_id)
+	  else
+	  	flash[:danger] = @recipe.errors.full_messages.join('<br>').html_safe
+	  	render :new
+	  end
   end
 
   def update
