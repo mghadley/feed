@@ -2,4 +2,9 @@
 
 <%= render(partial: 'form') %>
 
+<% @recipe.ingredients.each do |i| %>
+	<% measurement = i.measurements.find_by(recipe_id: @recipe.id) %>
+	<%= i.name %>
+<% end %>
+
 <%= link_to "Back", recipes_path
