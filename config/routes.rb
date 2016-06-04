@@ -1,4 +1,19 @@
 Rails.application.routes.draw do
+  get 'ingredients/new'
+
+  get 'ingredients/edit'
+
+  get 'recipes/index'
+
+  get 'recipes/show'
+
+  get 'recipes/new'
+
+  get 'recipes/edit'
+
+  get 'static_pages/splash'
+
+  devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
