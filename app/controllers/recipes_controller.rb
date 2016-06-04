@@ -11,7 +11,7 @@ class RecipesController < ApplicationController
   end
 
   def new
-  	@recipe = current_user.recipe.new
+  	@recipe = current_user.recipes.new
   end
 
   def edit
