@@ -4,7 +4,8 @@
 	<%= f.text_field :name %>
 
 	<%= f.label :duration %>
-  <%= f.time_select :duration %>
+  <%= f.select :duration, '0'..'9' %> hrs
+  <%= f.select :duration, '01'..'59' %> mins
 
   <%= f.label :difficulty %>
   <%= f.select :difficulty, Recipe.difficulty_options %>

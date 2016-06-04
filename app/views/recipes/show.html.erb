@@ -1,9 +1,6 @@
+<div class='containter-fluid'>
 <h1><%= @recipe.name %></h1>
 <hr />
-
-<span>Name:</span>
-<span> <%= @recipe.name %> </span>
-<br />
 
 <span>Duration:</span>
 <span> <%= @recipe.duration %> </span>
@@ -29,7 +26,8 @@
 
 
 <% if @recipe.user_id == current_user.id %>
-		<%= link_to "Edit Recipe", edit_recipe_path(@recipe) %> |
-		<%= link_to "Delete", recipe_path(@recipe) ,method: :delete, data: {confirm: 'Really delete?'} %> |
+		<%= link_to "Edit Recipe", edit_recipe_path(@recipe), class:'btn btn-primary' %> |
+		<%= link_to "Delete", recipe_path(@recipe) ,method: :delete, data: {confirm: 'Really delete?'}, class:'btn btn-default' %> |
 	<% end %> 
-	 
+
+</div> 
