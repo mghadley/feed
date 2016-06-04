@@ -35,7 +35,7 @@ class RecipesController < ApplicationController
   end
 
   def update
-  	if @recipe.update 
+  	if @recipe.update(recipe_params) 
   		redirect_to recipe_path(@recipe)
   	else
   		render :edit
@@ -45,7 +45,7 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-  	params.require(:recipe).permit(:name, :hours, :minutes, :difficulty, :category, :food_type, :instructions, :likes)
+  	params.require(:recipe).permit(:name, :hours, :minutes, :difficulty, :category, :food_type, :instructions, :likes, :image)
   end
 
   def recipe
