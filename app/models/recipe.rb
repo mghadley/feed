@@ -34,4 +34,9 @@ class Recipe < ActiveRecord::Base
 		['Breakfast', 'Lunch', 'Entree', 'Side Dish', 'Beverage', 'Dessert', 'Snack', 'Soup', 'Salad']
 	end
 
+	def self.trending
+		arr = Like.limit(5).pluck(:recipe_id)
+		return arr.map {|id| Recipe.find(id)}
+	end
+
 end
