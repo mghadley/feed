@@ -1,17 +1,32 @@
-<h1>Add Ingredients</h1>
-<%= form_tag('/ingredients') do %>
-	<% 20.times do |i| %>
-		<%= label_tag "Name" %>
-		<%= text_field_tag "name#{i}" %>
+<div class='row'>
+	<div>
+		<h1 class='center-align'>Add Ingredients</h1>
+	</div>
+</div>
 
-		<%= label_tag "Amount" %>
-		<%= number_field_tag "amount#{i}" %>
+<div class='row'>
+	<%= form_tag('/ingredients') do %>
+		<% 20.times do |i| %>
+			<div class='row'>
+				<div class='col s12 m4 offset-m2'>
+					<%= label_tag "Name" %>
+					<%= text_field_tag "name#{i}" %>
+				</div>
 
-		<%= label_tag "Unit" %>
-		<%= text_field_tag "unit#{i}" %>
-		<br>
+				<div class='col s12 m2'>
+					<%= label_tag "Amount" %>
+					<%= number_field_tag "amount#{i}" %>
+				</div>
+				
+				<div class='col s12 m2'>
+					<%= label_tag "Unit" %>
+					<%= text_field_tag "unit#{i}" %>
+				</div>
+				<br>
+			</div>
+		<% end %>
+
+		<%= hidden_field_tag :recipe_id, params[:id] %>
+		<%= submit_tag "Add ingredients", class: 'btn center-align' %>
 	<% end %>
-
-	<%= hidden_field_tag :recipe_id, params[:id] %>
-	<%= submit_tag "Add ingredients" %>
-<% end %>
+</div>

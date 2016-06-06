@@ -9,9 +9,13 @@
 
     <%= f.label :minutes %>
     <%= f.number_field :minutes %>
-
-    <%= f.label :difficulty %>
-    <%= f.select :difficulty, Recipe.difficulty_options %>
+    
+    <div class='input_field browser-default'>
+      <select class='browser-default'>
+        <%= f.label :difficulty, class: 'browser-default' %>
+        <%= f.select :difficulty, Recipe.difficulty_options, class: 'browser-default' %>
+      </select>
+    </div>
 
     <%= f.label :category %>
     <%= f.select :category, Recipe.category_options %>
