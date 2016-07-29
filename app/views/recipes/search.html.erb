@@ -4,22 +4,6 @@
 	<% @results.each do |recipe| %>
 		<h1><%= link_to recipe.name, recipe_path(recipe) %></h1>
 		<hr />
-
-		<span>Duration:</span>
-		<span> <%= recipe.duration %> </span>
-		<br />
-
-		<span>Difficulty:</span>
-		<span> <%= recipe.difficulty %> </span>
-		<br />
-
-		<span>Category:</span>
-		<span> <%= recipe.category %> </span>
-		<br />
-
-		<span>Food Type:</span>
-		<span> <%= recipe.food_type %> </span>
-		<br />
 	<% end %>
 <% else %>
 	<h2>No results found :/</h2>

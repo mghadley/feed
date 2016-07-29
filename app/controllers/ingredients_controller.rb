@@ -25,7 +25,9 @@ class IngredientsController < ApplicationController
 
   def add_one
     @recipe = Recipe.find(params[:ingredient][:recipe_id])
-    @ingredient = @recipe.ingredients.find_or_initialize_by(recipe_params)
+    @ingredient = Ingredient.find_or_create_by(recipe_params)
+    @measurement = Measurement.create(recipe_id: @recipe.id, ingredient_id: @ingredient.id, 
+                                      unit: params[:ingredient][:measurements][:unit], amount: params[:ingredient][:measurements][:amount])
     if @ingredient.save
       flash[:succes] = "Ingredient added successfully"
       redirect_to edit_recipe_path(@recipe)

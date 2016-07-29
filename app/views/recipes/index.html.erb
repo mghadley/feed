@@ -1,4 +1,4 @@
-<h1>Feed</h1>
+<h1>My Feed</h1>
 <% @recipes.each do |recipe| %>
 	<div>
 		<h2><%= link_to recipe.name, recipe_path(recipe) %></h2>
@@ -17,20 +17,21 @@
 			<%= i.name %>
 			<br>
 		<% end %>
+<%= commontator_thread(recipe) %>
 	</div>
 
 <hr/>
 
-<h1>Trending</h1>
-
-
-
-
-
-<h1>Suggested</h1>
-
-
-<%= commontator_thread(recipe) %>
-
 <% end %>
+<div>
+	<h2>Trending Recipes</h2>
+	<% @trending.each do |recipe| %>
+		<h1><%= link_to recipe.name, recipe_path(recipe) %></h1>
+		
+	<% end %>
+</div>
+
+
+
+
 
