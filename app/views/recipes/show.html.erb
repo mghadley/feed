@@ -30,7 +30,7 @@
 
 	<% if @recipe.id == current_user.id %>
 		<% if @recipe.image_file_name %>
-			<p><%= button_to 'Remove Image', remove_image_path(id: @recipe.id) %></p>
+			<p><%= button_to 'Remove Image', remove_image_path(id: @recipe.id) %></p>t
 		<% else %>
 			<%= form_for @recipe, html: { multipart: true } do |f| %>
 			  <%= f.file_field :image %>

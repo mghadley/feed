@@ -12,7 +12,6 @@ class IngredientsController < ApplicationController
             flash[:success] = "Ingredients Added Succssfully"
           else
             flash[:danger] = "Something went wrong"
-            binding.pry
             redirect_to(root_path) and return @recipe
           end
         else
